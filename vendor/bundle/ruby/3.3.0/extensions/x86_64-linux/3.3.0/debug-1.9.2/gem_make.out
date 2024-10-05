@@ -1,0 +1,19 @@
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+/home/thiago/.asdf/installs/ruby/3.3.4/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241004-18581-be7i3r sitelibdir\=./.gem.20241004-18581-be7i3r clean
+
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241004-18581-be7i3r sitelibdir\=./.gem.20241004-18581-be7i3r
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241004-18581-be7i3r sitelibdir\=./.gem.20241004-18581-be7i3r install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20241004-18581-be7i3r/debug
+
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241004-18581-be7i3r sitelibdir\=./.gem.20241004-18581-be7i3r clean

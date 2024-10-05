@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de IMC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .resultado {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .abaixo {
+      background-color: #ffeb3b;
+    }
+    .normal {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .sobrepeso {
+      background-color: #ff9800;
+      color: white;
+    }
+    .obesidade {
+      background-color: #f44336;
+      color: white;
+    }
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Calculadora de IMC</h1>
+  <form id="imcForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="peso">Peso (kg):</label>
+    <input type="number" id="peso" name="peso" required step="0.1">
+
+    <label for="altura">Altura (m):</label>
+    <input type="number" id="altura" name="altura" required step="0.01">
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" required>
+
+    <button type="submit">Calcular IMC</button>
+  </form>
+
+  <div id="resultado" class="resultado"></div>
+
+  <footer>
+    <p>Thiago José Herculano Dias - Sorocaba-SP-Brasil</p>
+    <p>Código de uso livre para fins estudantis</p>
+    <p>diasthiagojose@gmail.com</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('imcForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const peso = document.getElementById('peso').value;
+    const altura = document.getElementById('altura').value;
+    const idade = document.getElementById('idade').value;
+
+    const response = await fetch('/calcular_imc', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ nome, peso, altura, idade }),
+    });
+
+    const data = await response.json();
+    let resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.innerHTML = `
+      <h3>${data.message}</h3>
+      <p>Seu IMC é ${data.imc}</p>
+      <p>Peso ideal: entre ${data.peso_ideal_min} kg e ${data.peso_ideal_max} kg</p>
+    `;
+
+    // Define a classe com base no resultado do IMC
+    if (data.imc < 18.5) {
+      resultadoDiv.className = 'resultado abaixo';
+    } else if (data.imc >= 18.5 && data.imc < 24.9) {
+      resultadoDiv.className = 'resultado normal';
+    } else if (data.imc >= 25 && data.imc < 29.9) {
+      resultadoDiv.className = 'resultado sobrepeso';
+    } else {
+      resultadoDiv.className = 'resultado obesidade';
+    }
+  });
+</script>
+
+</body>
+</html>

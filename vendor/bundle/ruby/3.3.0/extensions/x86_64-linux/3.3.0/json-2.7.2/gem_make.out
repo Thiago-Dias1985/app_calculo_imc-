@@ -1,0 +1,16 @@
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+/home/thiago/.asdf/installs/ruby/3.3.4/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241004-18581-70wfty sitelibdir\=./.gem.20241004-18581-70wfty clean
+
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241004-18581-70wfty sitelibdir\=./.gem.20241004-18581-70wfty
+make: Nada a ser feito para 'all'.
+
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241004-18581-70wfty sitelibdir\=./.gem.20241004-18581-70wfty install
+
+current directory: /home/thiago/calculadora_imc/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241004-18581-70wfty sitelibdir\=./.gem.20241004-18581-70wfty clean
